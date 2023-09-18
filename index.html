@@ -13,37 +13,51 @@
 
 <body>
     <div class="container">
-        <h1>CP Timer and Counter</h1>
-        <p>count number of problems you solved in a day and time spend on solving problems</p>
-        <hr>
+        <div class="mt-5">
 
-        <!-- table -->
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Time</th>
-                    <th scope="col">Solved</th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-                <tr>
-                    <td id="time">00:00:00</td>
-                    <td id="solved">0</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <button type="button" class="btn btn-primary m-1" id="start">Start</button><button type="button"
-                                class="btn btn-danger m-1" id="stop">Stop</button>
-                        </div>
-                        <div>
-                            <button type="button" class="btn btn-primary m-1" id="reset">Reset</button>
-                        </div>
-                    </td>
-                    <td><button type="button" class="btn btn-primary" id="increase">Increase</button></td>
-                </tr>
-            </tbody>
-        </table>
+            <h1>CP Timer and Counter</h1>
+            <p>count number of problems you solved in a day and time spend on solving problems</p>
+            <hr class="border border-primary border-2 opacity-65">
+
+            <!-- table -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Solved</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td id="time">00:00:00</td>
+                        <td id="solved">0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <button type="button" class="btn btn-primary m-1" id="start">Start</button><button
+                                    type="button" class="btn btn-danger m-1" id="stop">Stop</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-primary m-1" id="reset">Reset</button>
+                            </div>
+                        </td>
+                        <td><button type="button" class="btn btn-primary" id="increase">Increase</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- music part -->
+        <div class="mt-5">
+            <h3>Music</h3>
+            <p>A beautiful music can help you to focus on your works.</p>
+            <hr class="border border-primary border-2 opacity-65">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/v9XyIGXcRck?si=PKhEbhlSvtGw0Flg"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
