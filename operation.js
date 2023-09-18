@@ -51,8 +51,6 @@ function solveIncreaser() {
             tableBody.appendChild(newRow);
         }
     }
-    else
-        alert("Please Start the timer first");
 }
 
 // calculate spended time when increase button in clicked

@@ -12,6 +12,34 @@
 </head>
 
 <body>
+    <!-- modal for show welcome texts -->
+    <!-- Modal -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="welcomeModalLabel">Welcome</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    This page store information temporary. It will not store the activities for future use.<br><b>Informations will be reset if you reload the page.</b><br>Thanks.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Lets Fire Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- show this page when you inter the page -->
+    <script>
+        window.addEventListener('load', function () {
+            // Select the modal element by its ID and show it
+            var modal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+            modal.show();
+        });
+    </script>
+
+    <!--  -->
     <div class="container">
         <div class="mt-4">
 
@@ -39,13 +67,41 @@
                                     type="button" class="btn btn-danger m-1" id="stop">Stop</button>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-primary m-1" id="reset">Reset</button>
+                                <button type="button" class="btn btn-primary m-1" id="reset" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">Reset</button>
                             </div>
                         </td>
                         <td><button type="button" class="btn btn-primary" id="increase">Increase</button></td>
                     </tr>
                 </tbody>
             </table>
+
+            <!-- modal for the reset button -->
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Alert!</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Reset all activities?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="reset_yes_btn">YES</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- reload this age if yes button clicked in the alert -->
+            <script>
+                document.getElementById("reset_yes_btn").addEventListener('click', function () {
+                    location.reload();
+                });
+            </script>
 
             <!-- show solved problem time -->
             <table class="table" id="solution_table" style="display: none;">
