@@ -149,5 +149,5 @@ document.getElementById("start").addEventListener("click", startTimer);
 // Stop the timer when the "Stop" button is clicked
 document.getElementById("stop").addEventListener("click", stopTimer);
 
-// reset the timer when the reset button in clicked
+// reset the timer when the reset button in clicked 
 document.getElementById("reset").addEventListener("click", resetTimer);
