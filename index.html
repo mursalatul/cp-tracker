@@ -13,7 +13,7 @@
 
 <body>
     <div class="container">
-        <div class="mt-5">
+        <div class="mt-4">
 
             <h1>CP Timer and Counter</h1>
             <p>count number of problems you solved in a day and time spend on solving problems</p>
@@ -44,6 +44,20 @@
                         </td>
                         <td><button type="button" class="btn btn-primary" id="increase">Increase</button></td>
                     </tr>
+                </tbody>
+            </table>
+
+            <!-- show solved problem time -->
+            <table class="table" id="solution_table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th scope="col">Solution</th>
+                        <th scope="col">At</th>
+                        <th scope="col">Time Spend</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider" id="solution_table_row">
+                    <!-- place increamented value and time spend on it -->
                 </tbody>
             </table>
         </div>
