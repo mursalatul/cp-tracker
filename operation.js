@@ -94,19 +94,20 @@ function timeSpend(solve_counter, presenttime) {
 increase_btn.addEventListener('click', solveIncreaser);
 
 // section 1
-// store the time
+// store the time(update when startTimer() is running)
 let hours = 0;
 let minutes = 0;
 let seconds = 0;
-let miliseconds = 0;
-let running;
+let miliseconds = 0; // milisec will not displayed. but it is need for perfect calculation
+let running; // running true means timer will run. else not.
 function startTimer() {
-
+    // timer will be update inside this tag
     time = document.getElementById("time");
-    const start = new Date, today = new Date;
-    today.setHours(hours, minutes, seconds, miliseconds);
-    
+
+    let start = new Date, today = new Date;
+    today.setHours(hours, minutes, seconds, miliseconds); 
     running = true
+    // timer in the html page will be displayed in this formate
     const format = new Intl.DateTimeFormat('en', {
         hourCycle: 'h23',
         hour: '2-digit',
@@ -116,17 +117,28 @@ function startTimer() {
     });
     // add today's timestamp so the timezone would be properly handled
     const timer = () => requestAnimationFrame(() => {
-        time.textContent = format.format(new Date - start + +today);
+        // finding current time
+        let currentTime = new Date - start + +today; // currentTime is in now miliseconds
+        // pushing to html tag "time" by converting to the previous format 
+        time.textContent = format.format(currentTime);
+        // converting to date object to use getHours() and methods
+        currentTime = new Date(currentTime)
+        // saving the time for future use. (example: again start form this time)
+        hours = currentTime.getHours();
+        minutes = currentTime.getMinutes();
+        seconds = currentTime.getSeconds();
+        miliseconds = currentTime.getMilliseconds();
+
         running && timer();
     });
 
     timer();
+    // disable start button while running
     document.getElementById("start").disabled = true;
 }
 
 function stopTimer() {
-    // clearInterval(timerInterval);
-
+    // stoping the timeer function above
     running = false;
     // Enable the "Start" button when the timer is stopped
     document.getElementById("start").disabled = false;
