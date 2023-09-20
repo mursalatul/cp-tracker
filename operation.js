@@ -56,7 +56,7 @@ function solveIncreaser() {
 // calculate spended time when increase button in clicked
 // return present time
 function presentTime() {
-        return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`
+    return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`
 }
 
 function calculateTimeSpent(startTimeStr, endTimeStr) {
@@ -85,7 +85,7 @@ function timeSpend(solve_counter, presenttime) {
     if (solve_counter == '1')
         pasttime = "00:00:00";
     else {
-        pasttime = document.getElementById(`solu${parseInt(solve_counter) - 1}`).innerHTML; 
+        pasttime = document.getElementById(`solu${parseInt(solve_counter) - 1}`).innerHTML;
     }
     calTime = calculateTimeSpent(pasttime, presenttime);
     return `${calTime.hours} h, ${calTime.minutes} m, ${calTime.seconds} s`
@@ -98,34 +98,36 @@ increase_btn.addEventListener('click', solveIncreaser);
 let hours = 0;
 let minutes = 0;
 let seconds = 0;
-
+let miliseconds = 0;
+let running;
 function startTimer() {
 
-    timerElement = document.getElementById("time");
+    time = document.getElementById("time");
+    const start = new Date, today = new Date;
+    today.setHours(hours, minutes, seconds, miliseconds);
+    
+    running = true
+    const format = new Intl.DateTimeFormat('en', {
+        hourCycle: 'h23',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        // fractionalSecondDigits: 2
+    });
+    // add today's timestamp so the timezone would be properly handled
+    const timer = () => requestAnimationFrame(() => {
+        time.textContent = format.format(new Date - start + +today);
+        running && timer();
+    });
 
-    timerInterval = setInterval(function () {
-        seconds++;
-
-        if (seconds === 60) {
-            seconds = 0;
-            minutes++;
-
-            if (minutes === 60) {
-                minutes = 0;
-                hours++;
-            }
-        }
-
-        const formattedTime = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-        timerElement.textContent = formattedTime;
-    }, 1000); // Update every 1 second
-    // Disable the "Start" button when the timer is running
+    timer();
     document.getElementById("start").disabled = true;
 }
 
 function stopTimer() {
-    clearInterval(timerInterval);
+    // clearInterval(timerInterval);
 
+    running = false;
     // Enable the "Start" button when the timer is stopped
     document.getElementById("start").disabled = false;
 }
