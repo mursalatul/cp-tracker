@@ -4,7 +4,7 @@ solve_counter = document.getElementById("solved");
 
 function solveIncreaser() {
     // solved problems will be add only if the timer is on
-    if (document.getElementById("start").disabled == true) {
+    // if (document.getElementById("start").disabled == true) {
         solve_counter.innerText = parseInt(solve_counter.innerText) + 1;
 
         // show the solution table when fist time increase button clicked
@@ -50,7 +50,7 @@ function solveIncreaser() {
             // Append the new row to the existing table
             tableBody.appendChild(newRow);
         }
-    }
+    // }
 }
 
 // calculate spended time when increase button in clicked
