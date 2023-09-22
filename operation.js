@@ -20,8 +20,14 @@ function solveIncreaser() {
             // adding solution number
             // Create a table data cell (td) for solution number
             const newCellForSolutionNumber = document.createElement("td");
+            // 
+            // adding inputed problem name (if given)
+            const problemname = document.getElementById("problem_name");
+            // 
             // Set the text content of the cell to "solve"
-            newCellForSolutionNumber.textContent = solve_counter.innerText;
+            newCellForSolutionNumber.textContent = solve_counter.innerText + " " + problemname.value;
+            // clearing the input field
+            problemname.value = "";
             // Append the cell to the row
             newRow.appendChild(newCellForSolutionNumber);
 
