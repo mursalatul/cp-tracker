@@ -46,8 +46,11 @@ function solveIncreaser() {
             // adding time spend
             // create a table cell for add time
             const newCellForTimeSpend = document.createElement("td");
-            // getting the spended time
-            newCellForTimeSpend.textContent = timeSpend(solve_counter.innerText, presenttime);
+            
+            // getting the spended time(from main timer)
+            // newCellForTimeSpend.textContent = timeSpend(solve_counter.innerText, presenttime);
+            // (from mini_timer)
+            newCellForTimeSpend.textContent = timeSpendFromMiniTimer();
             // append cell to the row
             newRow.appendChild(newCellForTimeSpend);
 
@@ -57,6 +60,17 @@ function solveIncreaser() {
             tableBody.appendChild(newRow);
         }
     // }
+}
+
+// timeSpendFromMiniTimer
+function timeSpendFromMiniTimer() {
+    // getting time from mini tiemr
+    let presentTimeOfMiniTimer = document.getElementById("minitimer").textContent;
+    
+    // converting it into date data to extract time and format it
+    presentTimeOfMiniTimer = new Date(`1970-01-01T${presentTimeOfMiniTimer}`);
+    
+    return `${presentTimeOfMiniTimer.getHours()} h, ${presentTimeOfMiniTimer.getMinutes()} m, ${presentTimeOfMiniTimer.getSeconds()} s`;
 }
 
 // calculate spended time when increase button in clicked

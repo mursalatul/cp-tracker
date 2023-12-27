@@ -65,13 +65,20 @@
                 <thead>
                     <tr>
                         <th scope="col">Time</th>
-                        <th scope="col">Solved</th>
+                        <th scope="col" style="text-align: center;">Target Filled</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
                     <tr>
+                        <!-- main timer. store all the time -->
                         <td id="time">00:00:00</td>
-                        <td id="solved">0</td>
+                        <td style="text-align: center;">
+                            <div class="row">
+                                <!-- sub time. store time for a particular problem. -->
+                                <div class="col" id="minitimer">00:00:00</div>
+                                <div class="col" id="solved">0</div>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -85,7 +92,14 @@
                             </div>
                         </td>
                         <td>
-                            <div class="row">
+                            <div class="row border">
+                                <div class="col-8 my-1">
+                                    <button class="btn btn-primary" type="button" id="timerstart">Start Timer</button>
+                                    <button class="btn btn-primary mx-1" type="button" id="timerstop">Stop Timer</button>
+                                    <button class="btn btn-primary" type="button" id="timernew">New Timer</button>
+                                </div>
+                            </div>
+                            <div class="row border">
                                 <!-- take problem name(optional) -->
                                 <div class="col-4">
                                     <input type="text" class="form-control" placeholder="Problem Name"
@@ -192,6 +206,7 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <script src="operation.js"></script>
-</body>
+    <script src="mini_timer.js"></script>
+</body> 
 
 </html>
